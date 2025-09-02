@@ -1,7 +1,7 @@
 {
   "name": "SOPK Tracker",
   "short_name": "SOPK",
-  "start_url": "./sopk_tracker.html",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#f4f4f9",
   "theme_color": "#6a5acd",
