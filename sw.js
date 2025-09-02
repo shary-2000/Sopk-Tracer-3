@@ -1,18 +1,17 @@
-self.addEventListener('install', e => {
-  console.log('Service Worker installé');
-  e.waitUntil(
-    caches.open('sopk-cache-v1').then(cache => {
-      return cache.addAll([
-        '/Sopk-Tracer-3/',
-        '/Sopk-Tracer-3/index.html',
-        '/Sopk-Tracer-3/manifest.json'
-      ]);
-    })
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open('v1').then(cache => cache.addAll([
+      '/',
+      '/index.html',
+      '/manifest.json',
+      '/icon-192.png',
+      '/icon-512.png'
+    ]))
   );
 });
 
-self.addEventListener('fetch', e => {
-  e.respondWith(
-    caches.match(e.request).then(response => response || fetch(e.request))
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    caches.match(event.request).then(response => response || fetch(event.request))
   );
 });
